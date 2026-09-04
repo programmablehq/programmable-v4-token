@@ -1,0 +1,29 @@
+{
+  "schema": "programmable-token-metadata-draft/v1",
+  "status": "DRAFT_PERMANENT_IMAGE_URI_REQUIRED",
+  "name": "Programmable",
+  "symbol": "V4",
+  "decimals": 18,
+  "description": "Shape what assets can do",
+  "chain": {
+    "name": "Robinhood Chain Mainnet",
+    "chainId": 4663
+  },
+  "image": "ipfs://REPLACE_WITH_PINNED_CID/programmable.png",
+  "imageStatus": "placeholder-not-published",
+  "localImage": {
+    "path": "metadata/programmable.png",
+    "mediaType": "image/png",
+    "width": 400,
+    "height": 400,
+    "sha256": "077afe8dfed12e167c1dad4c9f0cf28f0e8422a8f904cc64d9f208c539aefbfd"
+  },
+  "externalUrl": "https://programmable.market/",
+  "socials": {
+    "website": "https://programmable.market/",
+    "x": "https://x.com/ProgrammableHQ"
+  },
+  "tokenAddress": null,
+  "tokenAddressStatus": "not-deployed",
+  "notice": "Static metadata draft only. Replace the image placeholder with a permanently pinned URI before producing any official platform payload."
+}

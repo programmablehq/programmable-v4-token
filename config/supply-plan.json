@@ -1,0 +1,89 @@
+{
+  "schema": "programmable-v4-supply-plan/v1",
+  "status": "USER_CONFIRMED_ACCOUNTING_DRAFT_NOT_EXECUTED",
+  "chainId": 4663,
+  "token": {
+    "name": "Programmable",
+    "symbol": "V4",
+    "decimals": 18,
+    "fixedSupplyRaw": "1000000000000000000000000000",
+    "fixedSupplyDecimal": "1000000000.000000000000000000"
+  },
+  "constructorAllocation": {
+    "launchWallet": {
+      "address": "0x245099E77F8F0Cad9a75B1B56db8FDE7C948d5B1",
+      "amountRaw": "950000000000000000000000000",
+      "amountDecimal": "950000000.000000000000000000",
+      "supplyPercent": "95"
+    },
+    "oneShotLiquidityInitializer": {
+      "address": null,
+      "amountRaw": "50000000000000000000000000",
+      "amountDecimal": "50000000.000000000000000000",
+      "supplyPercent": "5",
+      "addressStatus": "launch-time-derived"
+    },
+    "equation": "950000000000000000000000000 + 50000000000000000000000000 = 1000000000000000000000000000",
+    "status": "enforced-by-token-constructor"
+  },
+  "postLaunchAllocationLedger": {
+    "note": "This reconciles the one-billion-token allocation intent. It is not a promise of static post-trade wallet balances: the atomic initial buy and later trading move tokens between the pool and holders.",
+    "initialLiquidityReservation": {
+      "amountRaw": "50000000000000000000000000",
+      "amountDecimal": "50000000.000000000000000000",
+      "supplyPercent": "5",
+      "execution": "atomic launch"
+    },
+    "migration": {
+      "amountRaw": "755738416021526951788414688",
+      "amountDecimal": "755738416.021526951788414688",
+      "supplyPercentDecimal": "75.5738416021526951788414688",
+      "recipientCount": 310,
+      "execution": "separate post-launch distribution",
+      "allocationPath": "distribution/migration-allocations.json",
+      "manifestPath": "distribution/migration-manifest.json",
+      "orderedAllocationSha256": "3ba2c483ccbdce333c106e4ecb7b68785f566bfec79d7d5e19c07dd9085d1f43",
+      "snapshotCutoff": {
+        "deadlineUtc": "2026-09-03T06:55:00.000Z",
+        "predicate": "block.timestamp < 1788418500",
+        "lastIncludedBlock": 25895120
+      }
+    },
+    "treasuryRemainder": {
+      "amountRaw": "194261583978473048211585312",
+      "amountDecimal": "194261583.978473048211585312",
+      "supplyPercentDecimal": "19.4261583978473048211585312",
+      "execution": "separate post-launch distribution",
+      "targets": [
+        {
+          "address": "0x3646c0e2A0238834F2b1FdbEa082a2Da5813a487",
+          "policySharePercentOfTreasuryRemainder": "65",
+          "amountRaw": "126270029586007481337530453",
+          "amountDecimal": "126270029.586007481337530453"
+        },
+        {
+          "address": "0x9F5856A3578Faba96A6E8Dfd9C10563A1E598f62",
+          "policySharePercentOfTreasuryRemainder": "35",
+          "amountRaw": "67991554392465566874054859",
+          "amountDecimal": "67991554.392465566874054859"
+        }
+      ],
+      "rounding": "Exact 18-decimal raw-unit reconciliation; the 65% target receives the single residual raw unit."
+    },
+    "exactEquationRaw": "50000000000000000000000000 + 755738416021526951788414688 + 194261583978473048211585312 = 1000000000000000000000000000",
+    "reconciliationStatus": "PASS"
+  },
+  "executionControls": {
+    "migrationAndTreasuryAreInLaunchTransaction": false,
+    "distributionContractDeployed": false,
+    "distributionExecuted": false,
+    "requiredBeforeDistribution": [
+      "successful launch receipt and source verification",
+      "canonical pool and hook state reconciliation",
+      "LP custody or lock decision completed and independently verified",
+      "fresh balance reconciliation that accounts for the initial buy",
+      "re-verification of distribution package hashes and exact total",
+      "owner review and signature"
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://programmable.market/schemas/programmable-v4-migration-allocations-v1.json",
+  "title": "Programmable V4 migration allocations",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "targetChainId",
+    "targetTokenDecimals",
+    "ordering",
+    "recipientCount",
+    "totalRaw",
+    "totalDecimal",
+    "orderedAllocationSha256",
+    "recipients"
+  ],
+  "properties": {
+    "schema": {
+      "const": "programmable-v4-migration-allocations/v1"
+    },
+    "targetChainId": {
+      "type": "integer",
+      "const": 4663
+    },
+    "targetTokenDecimals": {
+      "type": "integer",
+      "const": 18
+    },
+    "ordering": {
+      "const": "targetLowercaseAsciiAscending"
+    },
+    "recipientCount": {
+      "type": "integer",
+      "const": 310
+    },
+    "totalRaw": {
+      "type": "string",
+      "const": "755738416021526951788414688"
+    },
+    "totalDecimal": {
+      "type": "string",
+      "const": "755738416.021526951788414688"
+    },
+    "orderedAllocationSha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "recipients": {
+      "type": "array",
+      "minItems": 310,
+      "maxItems": 310,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "index",
+          "target",
+          "amountRaw",
+          "amountDecimal"
+        ],
+        "properties": {
+          "index": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 309
+          },
+          "target": {
+            "type": "string",
+            "pattern": "^0x[0-9a-fA-F]{40}$"
+          },
+          "amountRaw": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]*$"
+          },
+          "amountDecimal": {
+            "type": "string",
+            "pattern": "^(0|[1-9][0-9]*)\\.[0-9]{18}$"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "schema": "programmable-v4-migration-manifest/v1",
+  "packageScope": "MIGRATION recipients only",
+  "source": {
+    "fullSupplyWorkbook": {
+      "workspaceRelativePath": "outputs/01a06520-7460-7db2-b9b4-5407a9c65e7d/ROBINHOOD_V4_FULL_SUPPLY_PLAN_DRAFT_1B_LP5_OVR-001_OVR-002_REST-001_2026-09-04.xlsx",
+      "sha256": "80db21b1271292d79fea95e8e8f833e88ad96d60420ae33e7762bef243f05257",
+      "sheet": "Full Supply Distribution",
+      "range": "A2:Q314",
+      "selectedBucket": "MIGRATION"
+    },
+    "finalizedSnapshotAllocations": {
+      "workspaceRelativePath": "outputs/01a06520-7460-7db2-b9b4-5407a9c65e7d/V4_FINAL_ALLOCATIONS_2026-09-03T065500Z.json",
+      "sha256": "ef4ce7002aab6e53eb18b1d4f9abf545fdae33c333f1569b83212ead60ea3cc6",
+      "originalRecipientCount": 312,
+      "originalTotalRaw": "755738416021526951788414688"
+    },
+    "cutoff": {
+      "deadlineUtc": "2026-09-03T06:55:00.000Z",
+      "deadlineUnix": 1788418500,
+      "predicate": "block.timestamp < 1788418500",
+      "lastIncludedBlock": {
+        "number": 25895120,
+        "timestamp": 1788418499,
+        "timestampUtc": "2026-09-03T06:54:59.000Z",
+        "hash": "0xefc5f668f22232cbe78a47f1c4ee7236b9d24ddadfc13acacf0d304af2b14cc5",
+        "parentHash": "0xac8dbced6d9579343a67ff2d3aeeffaf4c54d4e028989ea948040f653aa04aff",
+        "stateRoot": "0xa0abe0ef13bc546e624cd7e9d7d2553e6a4e03ca9555a5a44cc20e5724241dc8",
+        "receiptsRoot": "0x0edb0ad4d5ca108e7642d938871b55cdad15952651144caeea6daa7bccb93a22",
+        "transactionsRoot": "0xae6beead195f1b81d05b42109577a434408eef38e2e38a4711b106584344a745"
+      },
+      "firstExcludedBlock": {
+        "number": 25895121,
+        "timestamp": 1788418511,
+        "timestampUtc": "2026-09-03T06:55:11.000Z",
+        "hash": "0x0f52684f478b4cb1854f52bb82945db078385f96b8a2b6d26fa9acb45087751a",
+        "parentHash": "0xefc5f668f22232cbe78a47f1c4ee7236b9d24ddadfc13acacf0d304af2b14cc5"
+      },
+      "finalized": true,
+      "multiProviderFinalizedProofHead": {
+        "number": 25895271,
+        "timestamp": 1788420311,
+        "timestampUtc": "2026-09-03T07:25:11.000Z",
+        "hash": "0xa9671ccdb6e6a896f71c2f0cfc83bef06f65ee16885a7e63772d5e9c443d9d12"
+      }
+    }
+  },
+  "target": {
+    "chainName": "Robinhood Chain Mainnet",
+    "chainId": 4663,
+    "tokenName": "Programmable",
+    "tokenSymbol": "V4",
+    "tokenDecimals": 18,
+    "tokenAddress": null,
+    "tokenAddressStatus": "not deployed or source-verified in the bound workbook"
+  },
+  "ordering": {
+    "rule": "targetLowercaseAsciiAscending",
+    "indexBase": 0,
+    "uniquenessKey": "lowercase EVM target address"
+  },
+  "amountEncoding": {
+    "amountRaw": "unsigned base-10 uint256 string in 18-decimal token units",
+    "amountDecimal": "fixed 18-decimal base-10 display string"
+  },
+  "orderedAllocationDigest": {
+    "algorithm": "SHA-256",
+    "encoding": "UTF-8",
+    "domainSeparator": "programmable-v4-migration-allocation/v1|chainId=4663|decimals=18\n",
+    "recordFormat": "<lowercase_evm_address>,<base10_uint256_amountRaw>\\n",
+    "value": "3ba2c483ccbdce333c106e4ecb7b68785f566bfec79d7d5e19c07dd9085d1f43",
+    "note": "This is a flat ordered-record digest, not a Merkle root."
+  },
+  "reconciliation": {
+    "sourceFullSupplyRowCount": 313,
+    "sourceSnapshotRecipientCount": 312,
+    "migrationRecipientCount": 310,
+    "uniqueMigrationRecipientCount": 310,
+    "migrationTotalRaw": "755738416021526951788414688",
+    "migrationTotalDecimal": "755738416.021526951788414688",
+    "excluded": {
+      "initialLp": {
+        "rowCount": 1,
+        "totalRaw": "50000000000000000000000000",
+        "totalDecimal": "50000000.000000000000000000"
+      },
+      "treasuryRemainder": {
+        "rowCount": 2,
+        "totalRaw": "194261583978473048211585312",
+        "totalDecimal": "194261583.978473048211585312",
+        "targets": [
+          "0x3646c0e2A0238834F2b1FdbEa082a2Da5813a487",
+          "0x9F5856A3578Faba96A6E8Dfd9C10563A1E598f62"
+        ]
+      }
+    },
+    "excludedTotalRaw": "244261583978473048211585312",
+    "fullSupplyTotalRaw": "1000000000000000000000000000",
+    "fullSupplyTotalDecimal": "1000000000.000000000000000000",
+    "exactEquation": "migrationTotalRaw + initialLp.totalRaw + treasuryRemainder.totalRaw = fullSupplyTotalRaw",
+    "status": "PASS"
+  },
+  "overrides": {
+    "OVR_001": {
+      "removedSources": [
+        "0x77B6E288B1e578EBBcd5708d48E4Fb929bC6A44D",
+        "0x9F5856A3578Faba96A6E8Dfd9C10563A1E598f62"
+      ],
+      "finalTargets": [
+        {
+          "target": "0x20C80D578d2c387f8f32D04FDEA137F4144F27aA",
+          "amountRaw": "12453871913232192230249089",
+          "amountDecimal": "12453871.913232192230249089"
+        }
+      ],
+      "status": "included in canonical migration allocation set"
+    },
+    "OVR_002": {
+      "removedSources": [
+        "0x3865757B9086ccF3c6187DCc83604c2585a88eAc",
+        "0xde6D50C7De0262Cf4b6b2B78297D68115e1a20CC",
+        "0xb410720Fd7be07bBf7EFc3ff83B253890672d71c",
+        "0x7d6F8189eB73DAF5d33019bf36181d1067E1BfC6",
+        "0x5A8D7D5bdFEb77AeF3eFD472807d0be93B01F5fB",
+        "0xA29b926c08E66a7f6df38f64E47ABa39b2132fb4",
+        "0xFaf2dA5BC45E1258F0230cB35C29BB6827B24Fc3"
+      ],
+      "finalTargets": [
+        {
+          "target": "0x12aF4F24c30Ae4FfF17F997b913A443a45eb5ae6",
+          "amountRaw": "13132139315038611763619987",
+          "amountDecimal": "13132139.315038611763619987"
+        },
+        {
+          "target": "0x2da036704793d2B95d2752bAc23258A91479a1b3",
+          "amountRaw": "13132139315038611763619986",
+          "amountDecimal": "13132139.315038611763619986"
+        },
+        {
+          "target": "0x6aE8afF5af0E07d2B32610BAaEd7536FAf1AAF76",
+          "amountRaw": "13132139315038611763619986",
+          "amountDecimal": "13132139.315038611763619986"
+        },
+        {
+          "target": "0x73547bB64c791827d5d09B9864345De5E6e316FB",
+          "amountRaw": "13132139315038611763619986",
+          "amountDecimal": "13132139.315038611763619986"
+        },
+        {
+          "target": "0x82A23D4f280d7fCf883A17082A6156D2CaEBb889",
+          "amountRaw": "13132139315038611763619986",
+          "amountDecimal": "13132139.315038611763619986"
+        },
+        {
+          "target": "0xb0d8bF106d303F87073A161B6b2a0F92F3a380Ca",
+          "amountRaw": "13132139315038611763619986",
+          "amountDecimal": "13132139.315038611763619986"
+        }
+      ],
+      "status": "included in canonical migration allocation set"
+    }
+  },
+  "merkle": {
+    "generated": false,
+    "root": null,
+    "leafEncoding": null,
+    "reason": "No Merkle root was requested; no leaf encoding is defined in this package."
+  },
+  "artifacts": {
+    "README.md": {
+      "sha256": "175861d45ca5632c4835afd377360fd9ee37a2606113ca4da47790844ceeffa2"
+    },
+    "build-migration-package.mjs": {
+      "sha256": "e4d43f6c36633114f85cf0d559149fbf8d081bd6c01e49be4cc5cf3378d29f8b"
+    },
+    "migration-allocations.csv": {
+      "sha256": "a413a3a9006af3e78337a0374a9f06403aff2915f0cc05cf77fe1e8bc54a291e"
+    },
+    "migration-allocations.json": {
+      "sha256": "7084b21a345b5df112b138d8ae5b05b1bae665c488674ffe049d217b803ed74f"
+    },
+    "migration-allocations.schema.json": {
+      "sha256": "1e47e96d4f4b1fc9a3d22414e15ed8bc4bad54620a4451dd497945a5fce25a2b"
+    },
+    "verify-package.mjs": {
+      "sha256": "20a1fe5725f8dd312ffb356cdf13a023fffe09a61227fabea7311c81576b00dd"
+    }
+  }
+}

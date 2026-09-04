@@ -1,0 +1,111 @@
+{
+  "schema": "programmable-v4-launch-intent/v1",
+  "status": "PRE_LAUNCH_DRAFT",
+  "officialPlatformPayload": false,
+  "network": {
+    "name": "Robinhood Chain Mainnet",
+    "chainId": 4663,
+    "nativeCurrency": "ETH"
+  },
+  "asset": {
+    "name": "Programmable",
+    "symbol": "V4",
+    "decimals": 18,
+    "fixedSupplyRaw": "1000000000000000000000000000",
+    "fixedSupplyDecimal": "1000000000.000000000000000000",
+    "metadataPath": "metadata/token-metadata.json"
+  },
+  "launchWallet": "0x245099E77F8F0Cad9a75B1B56db8FDE7C948d5B1",
+  "architecture": {
+    "deploymentShape": "three-target acyclic graph: initializer, token, hook",
+    "initializer": "one-shot atomic pool initialization, full-range LP mint, and initial buy",
+    "token": "fixed-supply ERC-20 with no owner, mint, pause, blacklist, upgrade, transfer fee, or rescue path",
+    "hook": "canonical-pool dynamic LP-fee override with immutable configuration",
+    "poolKey": {
+      "currency0": "native ETH (address(0))",
+      "currency1": "deployed V4 token address (launch-time derived)",
+      "fee": "DYNAMIC_FEE_FLAG",
+      "tickSpacing": 60,
+      "hooks": "deployed hook address with BEFORE_INITIALIZE and BEFORE_SWAP flags"
+    }
+  },
+  "feeSchedule": {
+    "scope": "canonical ETH/V4 Uniswap v4 pool only",
+    "windowStart": "first successful canonical swap, which must be the initializer's atomic initial buy",
+    "launchFee": {
+      "pips": 300000,
+      "percent": "30",
+      "durationSeconds": 30,
+      "interval": "[firstSwapTimestamp, firstSwapTimestamp + 30)"
+    },
+    "permanentFee": {
+      "pips": 10000,
+      "percent": "1",
+      "startsAt": "firstSwapTimestamp + 30"
+    },
+    "transition": "hard switch, not linear",
+    "swapCoverage": "both directions and both exact-input and exact-output modes in the canonical pool",
+    "accounting": "Uniswap v4 LP fee; accrues to active liquidity providers according to liquidity share, subject to protocol accounting",
+    "notATransferTax": true,
+    "notGlobalAcrossOtherPools": true,
+    "automaticReinvestment": false
+  },
+  "initialLiquidity": {
+    "positionType": "full range",
+    "tokenBudgetRaw": "50000000000000000000000000",
+    "tokenBudgetDecimal": "50000000.000000000000000000",
+    "supplyPercent": "5",
+    "nativeBudgetIntentUsd": "100000",
+    "nativeBudgetWei": null,
+    "actualNativePrincipalWei": null,
+    "actualTokenPrincipalRaw": null,
+    "initialPriceReferenceUsdPerToken": "0.002",
+    "impliedReferenceFdvUsd": "2000000",
+    "initialSqrtPriceX96": null,
+    "priceNote": "USD values are planning references, not an onchain oracle guarantee. Exact ETH amount and Q64.96 price must be computed from a fresh launch-time quote.",
+    "nftRecipient": "0x245099E77F8F0Cad9a75B1B56db8FDE7C948d5B1",
+    "lockedAtLaunch": false,
+    "lockStatus": "deliberately deferred until post-launch verification",
+    "futureLiquidity": "permissionless; each later position remains controlled by its own NFT owner"
+  },
+  "initialBuy": {
+    "buyerAndRecipient": "0x245099E77F8F0Cad9a75B1B56db8FDE7C948d5B1",
+    "grossIntentUsd": "100",
+    "nativeAmountWei": null,
+    "minimumTokenOutRaw": null,
+    "sqrtPriceLimitX96": null,
+    "deadlineUnix": null,
+    "maxDeadlineDelaySeconds": 900,
+    "note": "The initial buy is part of the atomic launch and is charged the 30% launch LP fee. Exact input and slippage bounds remain launch-time inputs."
+  },
+  "distribution": {
+    "includedInLaunchTransaction": false,
+    "initialWalletMintRaw": "950000000000000000000000000",
+    "initialWalletMintDecimal": "950000000.000000000000000000",
+    "migrationExecution": "separate later owner-controlled operation after launch and LP verification",
+    "canonicalPlanPath": "config/supply-plan.json",
+    "migrationPackagePath": "distribution/migration-allocations.json"
+  },
+  "launchTimeRequiredInputs": [
+    "fresh platform release/read-write capability confirmation",
+    "fresh chain trust-root addresses, linkage, runtime code hashes, and block binding",
+    "immutable source revision and official platform-generated bundle",
+    "permanent pinned metadata image URI",
+    "fresh ETH/USD quote source and timestamp",
+    "initialSqrtPriceX96",
+    "LP native budget in wei and exact previewed principals",
+    "initial-buy native amount, minimum token output, price limit, and deadline",
+    "fresh expected runtime code hashes for initializer, token, and hook",
+    "launch-wallet signature and explicit funding approval"
+  ],
+  "explicitlyNotPerformed": [
+    "API key creation or capture",
+    "official launch payload generation",
+    "platform submission",
+    "transaction signing",
+    "deployment or broadcast",
+    "fund movement",
+    "LP lock or burn",
+    "migration distribution"
+  ]
+}

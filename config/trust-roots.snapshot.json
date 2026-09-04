@@ -1,0 +1,176 @@
+{
+  "schema": "programmable-v4-trust-roots-snapshot/v1",
+  "status": "DRAFT_PUBLIC_RELEASE_GATE_CLOSED",
+  "recordedAtUtc": "2026-09-03T23:57:20Z",
+  "network": {
+    "name": "Robinhood Chain Mainnet",
+    "chainId": 4663,
+    "observedRpcBlock": {
+      "tag": "latest",
+      "number": 53819282,
+      "hash": "0x644aa447513e8239c8688a8184dc7f86aa423c2eb93304e797a374098de8e7b5",
+      "timestampUtc": "2026-09-03T23:56:38Z",
+      "rpc": "https://rpc.mainnet.chain.robinhood.com",
+      "finalized": false
+    },
+    "launchBlockNumber": null,
+    "launchBlockHash": null,
+    "note": "Runtime hashes and linkages below were independently read at observedRpcBlock and compared with the live no-store Programmable capabilities response. This is not a finalized launch-block binding and must be refreshed before signing."
+  },
+  "officialSources": [
+    "https://developers.uniswap.org/docs/protocols/v4/deployments",
+    "https://docs.robinhood.com/chain/deploy-smart-contracts/",
+    "https://raw.githubusercontent.com/Uniswap/contracts/4cfc406c8e34da3ce04e60657a7825075b64fd22/deployments/json/4663.json",
+    "https://api.programmable.market/v4/chains/4663/capabilities",
+    "https://api.programmable.market/v4/chains/4663/readiness",
+    "https://programmable.market/.well-known/programmable.json",
+    "https://programmable.market/openapi/custom-launch-v4.json",
+    "https://programmable.market/schemas/custom-launch/v4/pack-config.json"
+  ],
+  "uniswapRegistry": {
+    "repository": "Uniswap/contracts",
+    "commit": "4cfc406c8e34da3ce04e60657a7825075b64fd22",
+    "path": "deployments/json/4663.json",
+    "sha256": "sha256:21964cefbfc24b0ee89e7427acf74d223ce5a50aeb4216a9bac361a6148dea15",
+    "currentMainMatchedPinnedBytesAtObservation": true
+  },
+  "uniswapV4": {
+    "poolManager": {
+      "address": "0x8366a39CC670B4001A1121B8F6A443A643e40951",
+      "runtimeCodeHash": "0xbd3881180b547f5fe817545743cfb4343e96b1bc6640dcd70c106b0066e95626",
+      "status": "verified-at-observed-rpc-block-and-live-capabilities"
+    },
+    "positionManager": {
+      "address": "0x58daec3116aae6D93017bAAea7749052E8a04fA7",
+      "runtimeCodeHash": "0xc873e135dc9aaec88489cfbad146b4cb49d6a32e0d80326377784b7ba17670b2",
+      "poolManagerLinkage": "0x8366a39CC670B4001A1121B8F6A443A643e40951",
+      "status": "verified-at-observed-rpc-block-and-live-capabilities"
+    },
+    "quoter": {
+      "address": "0x8Dc178eFB8111BB0973Dd9d722ebeFF267c98F94",
+      "runtimeCodeHash": "0xd707b1da8cb165e5ea35a3b4450d971eb562ec171e23492aa117036b78a868f6",
+      "poolManagerLinkage": "0x8366a39CC670B4001A1121B8F6A443A643e40951",
+      "status": "verified-at-observed-rpc-block-and-live-capabilities"
+    },
+    "stateView": {
+      "address": "0xF3334192D15450CdD385c8B70e03f9A6bD9E673b",
+      "runtimeCodeHash": "0x7d9c591e0956fd89d98feb4ffcfe8bf1f7a62bd485edd979fa21d104b49878a6",
+      "poolManagerLinkage": "0x8366a39CC670B4001A1121B8F6A443A643e40951",
+      "status": "verified-at-observed-rpc-block-and-live-capabilities"
+    },
+    "universalRouter": {
+      "address": "0x06AfBA43Fd06227fA663b0DAecF536f6EaA6bf99",
+      "runtimeCodeHash": "0xbe8e8191bb42d843c2e948a5a55772eaab864ce01e54dcd47c9d089170b302d5",
+      "version": "2.1.1",
+      "deploymentTransactionHash": "0xdfb76494e158d8dea4376160315239271636a18515207fd4526e574bc7eeb456",
+      "poolManagerLinkage": "0x8366a39CC670B4001A1121B8F6A443A643e40951",
+      "v4PositionManagerLinkage": "0x58daec3116aae6D93017bAAea7749052E8a04fA7",
+      "acrossSpokePoolImmutable": "0xD29C85F15DF544bA632C9E25829fd29d767d7978",
+      "status": "current-official-uniswap-registry-entry-verified-at-observed-rpc-block",
+      "usedByAtomicInitializer": false
+    },
+    "historicalUniversalRouters": [
+      {
+        "address": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+        "runtimeCodeHash": "0x2ce6aaaf9f4151f5e1cbf774668772f17f532ae11b15e9284fd0a072a8b0fbde",
+        "version": "2.1.1",
+        "deploymentTransactionHash": "0x422569c99e80a452d45680fbf16cf04cd4ae79cd2b0d7a6a89cf6603009ed1fa",
+        "status": "historical-orphaned-do-not-use-for-new-launch",
+        "reason": "The official Uniswap registry says this instance used placeholder SpokePool 0x7332D11BD10d18A04B119Cd4671a96f3148002c4 and was replaced by the current router wired to production SpokePool 0xD29C85F15DF544bA632C9E25829fd29d767d7978. The SpokePool is an immutable constructor argument."
+      }
+    ],
+    "permit2": {
+      "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+      "runtimeCodeHash": "0x5208783f52488f7d3493e5e38311ab707c1d75457fe472a19b0b4d57d66a7fca",
+      "status": "verified-at-observed-rpc-block-and-live-capabilities",
+      "usedByAtomicInitializer": false
+    }
+  },
+  "programmablePlatform": {
+    "liveBackend": {
+      "capabilitiesHttpStatus": 200,
+      "capabilitiesSchemaVersion": "programmable.custom-launch-capabilities.v2",
+      "capabilitiesReadinessStatus": "ready",
+      "capabilitiesReasonCodes": [],
+      "readinessHttpStatus": 200,
+      "readinessStatus": "ready",
+      "readinessSourceCommit": "805f1129c89df801f57000ee333409ae79017ce6",
+      "openApiSha256": "sha256:dcb31d82f76008741b90e2ed78410314085afe5c581fa0ca15e786a29a6d21f7",
+      "publicFinalizedFeed": {
+        "httpStatus": 200,
+        "qualityStatus": "ready",
+        "sourceRowCount": 1,
+        "publishedRowCount": 1,
+        "quarantinedRowCount": 0
+      }
+    },
+    "publicReleaseGate": {
+      "status": "EXTERNAL_BLOCKED_PUBLIC_RELEASE_CONTRACT",
+      "discoveryV4Status": "planned",
+      "activationStage": "planned-not-deployed",
+      "publicAuthorization": false,
+      "publicWrites": false,
+      "releaseReady": false,
+      "cli": {
+        "sourceCandidateVersion": "4.0.0",
+        "sourceCandidate": true,
+        "released": false,
+        "installable": false,
+        "liveEthereumVersion": "3.3.9"
+      },
+      "note": "The backend and public finalized-read feed are operational, but the canonical public discovery contract still disables Robinhood V4 authorization/writes and no immutable V4 CLI release is installable. UI form visibility, an API key, or a backend-ready response does not override this fail-closed public release gate."
+    },
+    "launchStampRouter": {
+      "address": "0x34965F2A2ee9254522232C32F02056E92BE0C98a",
+      "runtimeCodeHash": "0x1dbbdaaad901ea3c6134dca0d4872a4789b3c071bf8ccfb44edd65d26d817388",
+      "status": "verified-at-observed-rpc-block-and-live-capabilities"
+    },
+    "graphFactory": {
+      "address": "0x0B6b3F40f84Df25D3bd69238f937096177DD09Bd",
+      "runtimeCodeHash": "0xd23692fae59331592048e71a96d4963e170ee56e449683dc9f7fa3f9470018b8",
+      "status": "verified-at-observed-rpc-block-and-live-capabilities"
+    },
+    "permitAuthority": {
+      "address": "0xeD617CE7f82e2AB589aDeFFD319D1D872Bc8De06",
+      "runtimeCodeHash": "0xd7d408ebcd99b2b70be43e20253d6d92a8ea8fab29bd3be7f55b10032331fb4c",
+      "status": "verified-at-observed-rpc-block-and-live-capabilities"
+    },
+    "universalRouterConsistency": {
+      "status": "RESOLVED_CURRENT_MATCH",
+      "officialUniswapAddress": "0x06AfBA43Fd06227fA663b0DAecF536f6EaA6bf99",
+      "programmableCapabilityAddress": "0x06AfBA43Fd06227fA663b0DAecF536f6EaA6bf99",
+      "historicalOrphanedAddress": "0x8876789976dEcBfCbBbe364623C63652db8C0904",
+      "note": "The exact Uniswap registry commit pinned by live capabilities and current Uniswap/contracts main are byte-identical and name 0x06Af... as latest. The initializer does not use Universal Router, but any post-launch routing integration must use and revalidate the current entry rather than the historical orphan."
+    },
+    "safeAuthenticatedReadProbe": {
+      "method": "GET",
+      "url": "https://api.programmable.market/v4/chains/4663/custom-launches?limit=1",
+      "requestBody": false,
+      "purpose": "Tests that an API key is active and has read scope without creating, preflighting, signing, broadcasting, or requiring launch.json.",
+      "limitation": "A 200 response does not by itself prove that the key is bound to the intended controller wallet."
+    }
+  },
+  "projectContracts": {
+    "initializerAddress": null,
+    "initializerRuntimeCodeHash": null,
+    "tokenAddress": null,
+    "tokenRuntimeCodeHash": null,
+    "hookAddress": null,
+    "hookRuntimeCodeHash": null,
+    "hookFlagsMask": "0x2080",
+    "status": "derive-from-final-build-and-official-platform-bundle"
+  },
+  "launchGate": {
+    "pass": false,
+    "requiredBeforeSigning": [
+      "wait for canonical public discovery to set Robinhood V4 live, publicAuthorization true, publicWrites true, and releaseReady true",
+      "wait for a released installable V4 CLI with immutable tag, tarball, and verified checksum",
+      "bind a fresh finalized chain block number and hash",
+      "eth_getCode and runtime-code-hash every used contract at that block",
+      "prove PositionManager.poolManager equals the bound PoolManager",
+      "reconfirm that the current official Universal Router remains 0x06AfBA43Fd06227fA663b0DAecF536f6EaA6bf99 and reject historical 0x8876789976dEcBfCbBbe364623C63652db8C0904",
+      "derive project addresses and hashes from the immutable official bundle",
+      "re-run source-bound build, tests, simulation, and independent review"
+    ]
+  }
+}
