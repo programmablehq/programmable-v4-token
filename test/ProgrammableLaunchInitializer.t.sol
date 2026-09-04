@@ -177,11 +177,31 @@ contract ProgrammableLaunchInitializerTest is Test {
             initializer, address(token), address(hook), address(token).codehash, address(hook).codehash, parameters
         );
 
-        parameters.deadline = block.timestamp + 15 minutes + 1;
+        parameters.deadline = block.timestamp + initializer.MAX_DEADLINE_DELAY() + 1;
         vm.expectPartialRevert(ProgrammableLaunchInitializer.InvalidDeadline.selector);
         graphFactory.launch(
             initializer, address(token), address(hook), address(token).codehash, address(hook).codehash, parameters
         );
+
+        assertEq(uint8(initializer.phase()), uint8(ProgrammableLaunchInitializer.Phase.Uninitialized));
+        assertFalse(hook.poolInitialized());
+        assertEq(positionManager.nextTokenId(), 1);
+    }
+
+    function testRouterAlignedMaximumDeadlineIsAccepted() public {
+        assertEq(initializer.MAX_DEADLINE_DELAY(), 1 hours);
+        ProgrammableLaunchInitializer.LaunchParameters memory parameters = _parameters();
+        parameters.deadline = block.timestamp + initializer.MAX_DEADLINE_DELAY();
+        ProgrammableLaunchInitializer.LiquidityPlan memory plan =
+            initializer.previewLiquidity(parameters.initialSqrtPriceX96, parameters.lpNativeBudget);
+        uint256 value = uint256(plan.nativeAmount) + uint256(parameters.initialBuyNativeAmount);
+        vm.deal(address(this), value);
+
+        graphFactory.launch{ value: value }(
+            initializer, address(token), address(hook), address(token).codehash, address(hook).codehash, parameters
+        );
+
+        assertEq(uint8(initializer.phase()), uint8(ProgrammableLaunchInitializer.Phase.Complete));
     }
 
     function testWrongSourceBoundCodeHashReverts() public {

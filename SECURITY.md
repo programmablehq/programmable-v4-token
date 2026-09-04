@@ -29,7 +29,7 @@ The hook has only `beforeInitialize` and `beforeSwap` permissions. It guards the
 2. Run formatting, build/size checks, all tests, extended fuzzing, distribution verification, and an independent security review.
 3. Simulate the official generated bundle against a current Robinhood Chain state; do not substitute locally invented addresses or calldata.
 4. Verify `chainId == 4663`, finalized block identity, balances, nonces, every runtime code hash, PositionManager-to-PoolManager linkage, hook flag bits, constructor arguments, pool ID, and currency ordering.
-5. Recompute the quote and all numeric inputs immediately before signing. Confirm the full gross ETH requirement, slippage floor, price limit, and deadline.
+5. Recompute the quote and all numeric inputs immediately before signing. Confirm the full gross ETH requirement, slippage floor, price limit, and deadline. The initializer deadline must equal the Router permit deadline, whose total lifetime is capped at 3,600 seconds; repack if the quote or wallet handoff is delayed.
 6. Decode the complete owner-facing transaction. It must not include approvals, transfers, arbitrary calls, or recipients beyond the reviewed plan.
 7. Keep API keys, wallet keys, seed phrases, signatures, and raw authorization tokens out of files, logs, screenshots, and chat.
 

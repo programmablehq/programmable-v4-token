@@ -44,8 +44,8 @@
   },
   "standardJson": {
     "path": "build/programmable-v4/standard-json/programmable-v4.json",
-    "byteLength": 299634,
-    "sha256": "sha256:6def6468c51b1a2050fde8095bf1ff1bbbe319a80981a3aea0aa649b62122c8d",
+    "byteLength": 299794,
+    "sha256": "sha256:9578e1961784d82e7e01e6bc0d4a24f026403a69993ac3c7c173f727a0a9fac6",
     "sourceCount": 64
   },
   "sources": [
@@ -299,7 +299,7 @@
     },
     {
       "sourcePath": "src/ProgrammableLaunchInitializer.sol",
-      "contentSha256": "sha256:67438797fc4452cb9b38823fa02766578f5be49038535144a9c59794f6c9ce23"
+      "contentSha256": "sha256:3b9afb827272f3289bb78fdacdc06bdd73ae79e1f339e0617064fe0d5d0cb4f6"
     },
     {
       "sourcePath": "src/ProgrammableToken.sol",
@@ -311,9 +311,9 @@
       "sourcePath": "src/ProgrammableLaunchInitializer.sol",
       "contractName": "ProgrammableLaunchInitializer",
       "artifactPath": "build/programmable-v4/artifacts/programmable-launch-initializer.json",
-      "artifactSha256": "sha256:5a9b294cc7bc1da3fdc952efb08cb11c9d79ea8594243a28224a3974aeb8b795",
-      "creationBytecodeSha256": "sha256:2c6cc1194ee76ed6fa9f559c634a61089bb622b1e6848f7da281d311846afe33",
-      "runtimeBytecodeSha256": "sha256:0bd056420dbcddbbe17d53b0e577beef5c2a7a8f2e7f7d5828261776cf2c5779",
+      "artifactSha256": "sha256:22f1114c0ce2f93c557ad3855644162a34414352d8db97bef8fc57a639cbba7f",
+      "creationBytecodeSha256": "sha256:63de901b75ce65d1fa1f0dc561c1d1f6689977932a83a069eae9a66fdfb0c53a",
+      "runtimeBytecodeSha256": "sha256:bea5c5c1f767434f5536b69dd3bb584c42764106a5d9cd17e1056bdea93d8e90",
       "runtimeImmutableReferences": {
         "10714": [
           {

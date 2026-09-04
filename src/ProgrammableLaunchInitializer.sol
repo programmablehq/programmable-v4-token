@@ -65,7 +65,9 @@ contract ProgrammableLaunchInitializer is IUnlockCallback {
     uint24 private constant EXPECTED_LAUNCH_FEE_PIPS = 300_000;
     uint24 private constant EXPECTED_PERMANENT_FEE_PIPS = 10_000;
     uint64 private constant EXPECTED_LAUNCH_FEE_DURATION = 30;
-    uint256 public constant MAX_DEADLINE_DELAY = 15 minutes;
+    // Keep the launch transaction bounded by the Router's one-hour permit while
+    // allowing an authoritative finalized-state simulation on Robinhood Chain.
+    uint256 public constant MAX_DEADLINE_DELAY = 1 hours;
     uint160 public constant REQUIRED_HOOK_FLAGS = Hooks.BEFORE_INITIALIZE_FLAG | Hooks.BEFORE_SWAP_FLAG;
     uint160 public constant HOOK_FLAGS_MASK = (1 << 14) - 1;
 

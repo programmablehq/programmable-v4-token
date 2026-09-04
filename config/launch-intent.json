@@ -75,7 +75,7 @@
     "minimumTokenOutRaw": null,
     "sqrtPriceLimitX96": null,
     "deadlineUnix": null,
-    "maxDeadlineDelaySeconds": 900,
+    "maxDeadlineDelaySeconds": 3600,
     "note": "The initial buy is part of the atomic launch and is charged the 30% launch LP fee. Exact input and slippage bounds remain launch-time inputs."
   },
   "distribution": {
