@@ -1,6 +1,6 @@
 {
   "schema": "programmable-token-metadata-draft/v1",
-  "status": "DRAFT_PERMANENT_IMAGE_URI_REQUIRED",
+  "status": "PRE_LAUNCH_PUBLICATION_PREPARED",
   "name": "Programmable",
   "symbol": "V4",
   "decimals": 18,
@@ -9,8 +9,8 @@
     "name": "Robinhood Chain Mainnet",
     "chainId": 4663
   },
-  "image": "ipfs://REPLACE_WITH_PINNED_CID/programmable.png",
-  "imageStatus": "placeholder-not-published",
+  "image": "https://raw.githubusercontent.com/programmablehq/programmable-v4-token/6361ebfbaeeee40be7ae20b8912d3d67a1ed66d5/metadata/programmable.png",
+  "imageStatus": "commit-addressed-publication-pending",
   "localImage": {
     "path": "metadata/programmable.png",
     "mediaType": "image/png",
@@ -25,5 +25,5 @@
   },
   "tokenAddress": null,
   "tokenAddressStatus": "not-deployed",
-  "notice": "Static metadata draft only. Replace the image placeholder with a permanently pinned URI before producing any official platform payload."
+  "notice": "Static pre-launch metadata. The image URI becomes publicly resolvable only after the referenced commit is published in the named public repository."
 }

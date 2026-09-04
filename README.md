@@ -75,6 +75,7 @@ The exact migration package should be executed only after those launch and LP ch
 - Website: https://programmable.market/
 - X: https://x.com/ProgrammableHQ
 - Local logo: `metadata/programmable.png` (400x400 PNG, SHA-256 `077afe8dfed12e167c1dad4c9f0cf28f0e8422a8f904cc64d9f208c539aefbfd`)
+- Prepared permanent URI: `https://raw.githubusercontent.com/programmablehq/programmable-v4-token/6361ebfbaeeee40be7ae20b8912d3d67a1ed66d5/metadata/programmable.png` (resolvable only after the referenced commit is publicly published)
 
 ## License
 

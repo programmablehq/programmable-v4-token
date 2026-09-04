@@ -41,7 +41,7 @@ These inputs remain unresolved until the final source is public and the launch w
 - current capability-bound `chainDeployment` and integer-revision `profile` objects;
 - exact external-contract evidence and constructor/initializer locators;
 - dependency-topological target salts, constructor arguments, initializer arguments, and runtime-immutable values;
-- a permanent public `https:`, `ipfs:`, or `ar:` URI for the approved local PNG;
+- public availability of the prepared commit-addressed HTTPS URI for the approved local PNG;
 - launch-time Q64.96 start price, previewed token/native liquidity principals, initial-buy amount, price limit, minimum
   output, and deadline;
 - exact native transaction funding value;
