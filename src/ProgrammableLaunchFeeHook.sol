@@ -33,7 +33,6 @@ contract ProgrammableLaunchFeeHook is BaseHook {
 
     bool public poolInitialized;
     uint64 public firstSwapTimestamp;
-    uint64 public feeEndTimestamp;
 
     error WrongChain(uint256 actualChainId);
     error ZeroToken();
@@ -102,9 +101,17 @@ contract ProgrammableLaunchFeeHook is BaseHook {
 
     /// @notice Returns the LP fee that a canonical swap would receive in the current block.
     function currentLPFeePips() public view returns (uint24) {
-        uint64 endTimestamp = feeEndTimestamp;
+        uint64 endTimestamp = feeEndTimestamp();
         if (endTimestamp == 0 || block.timestamp < endTimestamp) return LAUNCH_FEE_PIPS;
         return PERMANENT_FEE_PIPS;
+    }
+
+    /// @notice Returns when the immutable 30% launch-fee window ends.
+    /// @dev Derived from the one-shot start timestamp; no separate mutable fee state exists.
+    function feeEndTimestamp() public view returns (uint64) {
+        uint64 startTimestamp = firstSwapTimestamp;
+        if (startTimestamp == 0) return 0;
+        return startTimestamp + LAUNCH_FEE_DURATION;
     }
 
     function _beforeInitialize(address sender, PoolKey calldata key, uint160 sqrtPriceX96)
@@ -130,13 +137,12 @@ contract ProgrammableLaunchFeeHook is BaseHook {
         if (PoolId.unwrap(key.toId()) != canonicalPoolId) revert UnexpectedPool();
         if (!poolInitialized) revert PoolNotInitialized();
 
-        if (feeEndTimestamp == 0) {
+        if (firstSwapTimestamp == 0) {
             if (sender != AUTHORIZED_INITIALIZER) revert UnauthorizedFirstSwap(sender);
             if (block.timestamp > type(uint64).max - LAUNCH_FEE_DURATION) revert TimestampOverflow();
             uint64 startTimestamp = uint64(block.timestamp);
             uint64 endTimestamp = startTimestamp + LAUNCH_FEE_DURATION;
             firstSwapTimestamp = startTimestamp;
-            feeEndTimestamp = endTimestamp;
             emit LaunchFeeWindowStarted(canonicalPoolId, startTimestamp, endTimestamp);
         }
 

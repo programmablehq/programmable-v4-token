@@ -171,6 +171,18 @@ contract ProgrammableLaunchFeeHookTest is Test {
         assertEq(hook.feeEndTimestamp(), 1_000_030);
     }
 
+    function testLaunchWindowTimestampOverflowRevertsWithoutStarting() public {
+        _initialize();
+        vm.warp(uint256(type(uint64).max) - hook.LAUNCH_FEE_DURATION() + 1);
+
+        vm.prank(POOL_MANAGER);
+        vm.expectRevert(ProgrammableLaunchFeeHook.TimestampOverflow.selector);
+        hook.beforeSwap(initializer, key, _params(true, -1 ether), bytes(""));
+
+        assertEq(hook.firstSwapTimestamp(), 0);
+        assertEq(hook.feeEndTimestamp(), 0);
+    }
+
     function testLaterSwapsCannotResetLaunchWindow() public {
         _startAt(1_000_000);
         vm.warp(1_000_010);

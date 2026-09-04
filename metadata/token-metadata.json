@@ -10,7 +10,7 @@
     "chainId": 4663
   },
   "image": "https://raw.githubusercontent.com/programmablehq/programmable-v4-token/6361ebfbaeeee40be7ae20b8912d3d67a1ed66d5/metadata/programmable.png",
-  "imageStatus": "commit-addressed-publication-pending",
+  "imageStatus": "commit-addressed-public",
   "localImage": {
     "path": "metadata/programmable.png",
     "mediaType": "image/png",
@@ -25,5 +25,5 @@
   },
   "tokenAddress": null,
   "tokenAddressStatus": "not-deployed",
-  "notice": "Static pre-launch metadata. The image URI becomes publicly resolvable only after the referenced commit is published in the named public repository."
+  "notice": "Static pre-launch metadata. The image URI is pinned to a published commit in the named public repository."
 }

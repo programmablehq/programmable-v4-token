@@ -102,6 +102,8 @@ contract ProgrammableLaunchInitializer is IUnlockCallback {
     bytes32 public immutable EXPECTED_GRAPH_DEPLOYER_RUNTIME_CODE_HASH;
     bytes32 public immutable EXPECTED_POOL_MANAGER_RUNTIME_CODE_HASH;
     bytes32 public immutable EXPECTED_POSITION_MANAGER_RUNTIME_CODE_HASH;
+    /// @dev Exact callback-authority alias used only by the first-effect authentication guard.
+    address private constant poolManager = ROBINHOOD_POOL_MANAGER;
 
     Phase public phase;
     address public token;
@@ -337,7 +339,7 @@ contract ProgrammableLaunchInitializer is IUnlockCallback {
 
     /// @inheritdoc IUnlockCallback
     function unlockCallback(bytes calldata data) external returns (bytes memory) {
-        if (msg.sender != ROBINHOOD_POOL_MANAGER) revert UnauthorizedPoolManager(msg.sender);
+        if (msg.sender != poolManager) revert UnauthorizedPoolManager(msg.sender);
         if (phase != Phase.Active) revert InvalidPhase(phase, Phase.Active);
         if (activeBuyContextHash == bytes32(0) || keccak256(data) != activeBuyContextHash) revert InvalidBuyContext();
 

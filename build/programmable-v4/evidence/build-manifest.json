@@ -44,8 +44,8 @@
   },
   "standardJson": {
     "path": "build/programmable-v4/standard-json/programmable-v4.json",
-    "byteLength": 299166,
-    "sha256": "sha256:1716d6e227510496e4d1e29a1a137a4ac8c982210c942a4e75bc696553a14fb4",
+    "byteLength": 299634,
+    "sha256": "sha256:6def6468c51b1a2050fde8095bf1ff1bbbe319a80981a3aea0aa649b62122c8d",
     "sourceCount": 64
   },
   "sources": [
@@ -295,11 +295,11 @@
     },
     {
       "sourcePath": "src/ProgrammableLaunchFeeHook.sol",
-      "contentSha256": "sha256:fc86dd4bb3f3ae64ad8ed3d0166975db444d19b1d6f02ef90cf9829f06aa58a5"
+      "contentSha256": "sha256:26ff0bba2a95831887a59b001e182ad3fc788f27431e94548ac6c8ee2aa0c1cd"
     },
     {
       "sourcePath": "src/ProgrammableLaunchInitializer.sol",
-      "contentSha256": "sha256:aeb15d2ec4a3a0c9be65be79c975cd75728f284113d4135efa08d805832403c8"
+      "contentSha256": "sha256:67438797fc4452cb9b38823fa02766578f5be49038535144a9c59794f6c9ce23"
     },
     {
       "sourcePath": "src/ProgrammableToken.sol",
@@ -311,11 +311,11 @@
       "sourcePath": "src/ProgrammableLaunchInitializer.sol",
       "contractName": "ProgrammableLaunchInitializer",
       "artifactPath": "build/programmable-v4/artifacts/programmable-launch-initializer.json",
-      "artifactSha256": "sha256:4fdfbea0644431d5b4fe0c5f0afbe1314e6cf157c0a2934cfb83e626ea0b2f21",
+      "artifactSha256": "sha256:5a9b294cc7bc1da3fdc952efb08cb11c9d79ea8594243a28224a3974aeb8b795",
       "creationBytecodeSha256": "sha256:2c6cc1194ee76ed6fa9f559c634a61089bb622b1e6848f7da281d311846afe33",
       "runtimeBytecodeSha256": "sha256:0bd056420dbcddbbe17d53b0e577beef5c2a7a8f2e7f7d5828261776cf2c5779",
       "runtimeImmutableReferences": {
-        "10698": [
+        "10714": [
           {
             "length": 32,
             "start": 1544
@@ -329,7 +329,7 @@
             "start": 5080
           }
         ],
-        "10700": [
+        "10716": [
           {
             "length": 32,
             "start": 1075
@@ -339,7 +339,7 @@
             "start": 5113
           }
         ],
-        "10702": [
+        "10718": [
           {
             "length": 32,
             "start": 1462
@@ -349,7 +349,7 @@
             "start": 5175
           }
         ],
-        "10704": [
+        "10720": [
           {
             "length": 32,
             "start": 799
@@ -365,11 +365,11 @@
       "sourcePath": "src/ProgrammableToken.sol",
       "contractName": "ProgrammableToken",
       "artifactPath": "build/programmable-v4/artifacts/programmable-token.json",
-      "artifactSha256": "sha256:0a6c0b3cd1f4d9b05c2437e113cf6e72a95ccf02da81685be65036b05b155621",
+      "artifactSha256": "sha256:42fea37005e99f0bdb2226b346e19513f9f16adf4c94471359eb457af6cc12cf",
       "creationBytecodeSha256": "sha256:b8a92d44fa294ef041aa185ef79a11ec166ff01492288ba8288f825a3ab2aa54",
       "runtimeBytecodeSha256": "sha256:7fa11c84698bf3acfd75e6aa7ff20a4f9cfedcb0632f4c79d89ac9079e44c392",
       "runtimeImmutableReferences": {
-        "12528": [
+        "12548": [
           {
             "length": 32,
             "start": 464
@@ -381,68 +381,68 @@
       "sourcePath": "src/ProgrammableLaunchFeeHook.sol",
       "contractName": "ProgrammableLaunchFeeHook",
       "artifactPath": "build/programmable-v4/artifacts/programmable-launch-fee-hook.json",
-      "artifactSha256": "sha256:4dbf47e4c8bcb7ead9103e8346dcb7de8a336f85bf8cbfd88697c21b4e0416f9",
-      "creationBytecodeSha256": "sha256:713575bb2bf6c12d56618b8a4f687701fe341dc734353fadeb624a8b75e45df5",
-      "runtimeBytecodeSha256": "sha256:376052b3a80f3b111dd51173676ce8bff2c8340314578baa3d7b7fae33e0e66a",
+      "artifactSha256": "sha256:b0767198f1f5ffa7c5b284e01b72a4a6946493afdfaa17358e5041ccb06a245b",
+      "creationBytecodeSha256": "sha256:58dfb0d6d208c310f56917e564834f6703d845e7e84ee831d0f80eb687d503da",
+      "runtimeBytecodeSha256": "sha256:b25f7ad4477db175137ba10b603544c9c29b7019096025ebc324ee7499d02b30",
       "runtimeImmutableReferences": {
         "1482": [
           {
             "length": 32,
-            "start": 1302
+            "start": 1285
           },
           {
             "length": 32,
-            "start": 1406
+            "start": 1389
           },
           {
             "length": 32,
-            "start": 1505
+            "start": 1536
           },
           {
             "length": 32,
-            "start": 1610
+            "start": 1641
           },
           {
             "length": 32,
-            "start": 1715
+            "start": 1746
           },
           {
             "length": 32,
-            "start": 1811
+            "start": 1842
           },
           {
             "length": 32,
-            "start": 1914
+            "start": 1945
           },
           {
             "length": 32,
-            "start": 2077
+            "start": 2110
           }
         ],
         "10048": [
           {
             "length": 32,
-            "start": 901
+            "start": 884
           }
         ],
         "10050": [
           {
             "length": 32,
-            "start": 1360
+            "start": 1343
           },
           {
             "length": 32,
-            "start": 2336
+            "start": 2367
           },
           {
             "length": 32,
-            "start": 2749
+            "start": 2740
           }
         ],
         "10052": [
           {
             "length": 32,
-            "start": 664
+            "start": 647
           }
         ],
         "10054": [
@@ -452,7 +452,7 @@
           },
           {
             "length": 32,
-            "start": 2912
+            "start": 2903
           }
         ],
         "10056": [
@@ -462,19 +462,19 @@
           },
           {
             "length": 32,
-            "start": 2189
+            "start": 2222
           },
           {
             "length": 32,
-            "start": 2602
+            "start": 2593
           },
           {
             "length": 32,
-            "start": 2831
+            "start": 2822
           },
           {
             "length": 32,
-            "start": 3055
+            "start": 3046
           }
         ]
       }
