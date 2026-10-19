@@ -57,6 +57,8 @@ npm test
 npm run verify:distribution
 ```
 
+`npm run verify:distribution` also re-hashes the source workbook and finalized snapshot that `distribution/migration-manifest.json` binds (`source.*.workspaceRelativePath`). The verifier resolves those paths three directories above `distribution/`, and the files are not part of this repository, so in a plain clone the command stops with `ENOENT`. Without them, `shasum -a 256 -c SHA256SUMS.txt` run inside `distribution/` checks the package files themselves.
+
 For a deeper contract change, run `npm run test:fuzz`. Local checks do not establish an external audit, a deployed bytecode match or a trading route. Read [SECURITY.md](SECURITY.md) and the distribution instructions before changing or executing an operation.
 
 ## Links and license
