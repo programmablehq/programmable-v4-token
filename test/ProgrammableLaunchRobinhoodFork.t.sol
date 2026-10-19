@@ -20,10 +20,6 @@ import { ProgrammableLaunchFeeHook } from "../src/ProgrammableLaunchFeeHook.sol"
 import { ProgrammableLaunchInitializer } from "../src/ProgrammableLaunchInitializer.sol";
 import { ProgrammableToken } from "../src/ProgrammableToken.sol";
 
-interface IArbSys {
-    function arbBlockNumber() external view returns (uint256);
-}
-
 interface IUniversalRouterTrustRoot {
     function poolManager() external view returns (IPoolManager);
     function V4_POSITION_MANAGER() external view returns (address);
@@ -31,8 +27,10 @@ interface IUniversalRouterTrustRoot {
 }
 
 /// @dev Opt-in integration test against the real Robinhood Chain contracts at a pinned block.
+///      The RPC must serve historical state at FORK_BLOCK (an archive node). The public endpoint
+///      https://rpc.mainnet.chain.robinhood.com answers "historical state ... is not available" for this block.
 ///      Run with:
-///      ROBINHOOD_FORK_RPC_URL=https://rpc.mainnet.chain.robinhood.com \
+///      ROBINHOOD_FORK_RPC_URL=<archive-capable Robinhood Chain RPC> \
 ///        forge test --match-contract ProgrammableLaunchRobinhoodForkTest -vvv
 contract ProgrammableLaunchRobinhoodForkTest is Test {
     using LPFeeLibrary for uint24;
@@ -70,8 +68,9 @@ contract ProgrammableLaunchRobinhoodForkTest is Test {
         vm.createSelectFork(rpcUrl, FORK_BLOCK);
 
         assertEq(block.chainid, 4663, "wrong fork chain");
-        // On an Arbitrum Orbit chain the BLOCKNUMBER opcode exposes the L1 block. ArbSys exposes the pinned L2 height.
-        assertEq(IArbSys(address(100)).arbBlockNumber(), FORK_BLOCK, "fork L2 block drifted");
+        // Foundry does not implement Arbitrum precompiles: in a fork, ArbSys (0x64) is only its 0xfe placeholder
+        // code, so `arbBlockNumber()` always reverts. Foundry's fork environment reports the selected L2 height.
+        assertEq(vm.getBlockNumber(), FORK_BLOCK, "fork L2 block drifted");
         assertEq(POOL_MANAGER.codehash, POOL_MANAGER_CODE_HASH, "PoolManager runtime drifted");
         assertEq(POSITION_MANAGER.codehash, POSITION_MANAGER_CODE_HASH, "PositionManager runtime drifted");
         assertEq(UNIVERSAL_ROUTER.codehash, UNIVERSAL_ROUTER_CODE_HASH, "UniversalRouter runtime drifted");
